@@ -36,7 +36,6 @@ public class MainActivity extends AppCompatActivity {
         String emailTekst = email.getText().toString().trim();
         String hasloTekst = haslo.getText().toString().trim();
 
-        // Puste pola
         if (imieTekst.isEmpty() ||
                 nazwiskoTekst.isEmpty() ||
                 emailTekst.isEmpty() ||
@@ -46,13 +45,11 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
 
-        // Email
         if (!Patterns.EMAIL_ADDRESS.matcher(emailTekst).matches()) {
             komunikat.setText("Podaj poprawny adres email");
             return;
         }
 
-        // Hasło
         boolean duza = false;
         boolean mala = false;
         boolean specjalny = false;
