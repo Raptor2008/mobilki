@@ -1,103 +1,41 @@
-package com.example.myapplication;
+<?xml version="1.0" encoding="utf-8"?>
 
-import android.os.Bundle;
-import android.util.Patterns;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp">
 
-import androidx.appcompat.app.AppCompatActivity;
+    <EditText
+        android:id="@+id/nazwaPliku"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Podaj nazwę pliku" />
 
-public class MainActivity extends AppCompatActivity {
+    <EditText
+        android:id="@+id/tekstPliku"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:hint="Zawartość pliku"
+        android:gravity="top"
+        android:inputType="textMultiLine" />
 
-    EditText imie, nazwisko, email, haslo;
-    Button rejestracja;
-    TextView komunikat;
+    <Button
+        android:id="@+id/przyciskOtworz"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Otwórz" />
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+    <Button
+        android:id="@+id/przyciskZapisz"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Zapisz" />
 
-        imie = findViewById(R.id.imie);
-        nazwisko = findViewById(R.id.nazwisko);
-        email = findViewById(R.id.email);
-        haslo = findViewById(R.id.haslo);
-        rejestracja = findViewById(R.id.rejestracja);
-        komunikat = findViewById(R.id.komunikat);
+    <Button
+        android:id="@+id/przyciskUsun"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Usuń" />
 
-        rejestracja.setOnClickListener(v -> sprawdz());
-    }
-
-    public void sprawdz() {
-
-        String imieTekst = imie.getText().toString().trim();
-        String nazwiskoTekst = nazwisko.getText().toString().trim();
-        String emailTekst = email.getText().toString().trim();
-        String hasloTekst = haslo.getText().toString().trim();
-
-        if (imieTekst.isEmpty() ||
-                nazwiskoTekst.isEmpty() ||
-                emailTekst.isEmpty() ||
-                hasloTekst.isEmpty()) {
-
-            komunikat.setText("Uzupełnij wszystkie pola");
-            return;
-        }
-
-        if (!Patterns.EMAIL_ADDRESS.matcher(emailTekst).matches()) {
-            komunikat.setText("Podaj poprawny adres email");
-            return;
-        }
-
-        boolean duza = false;
-        boolean mala = false;
-        boolean specjalny = false;
-
-        for (int i = 0; i < hasloTekst.length(); i++) {
-
-            char znak = hasloTekst.charAt(i);
-
-            if (Character.isUpperCase(znak)) {
-                duza = true;
-            }
-
-            if (Character.isLowerCase(znak)) {
-                mala = true;
-            }
-
-            if (!Character.isLetterOrDigit(znak)) {
-                specjalny = true;
-            }
-        }
-
-        if (hasloTekst.length() < 8 ||
-                !duza ||
-                !mala ||
-                !specjalny) {
-
-            String tekst = "Hasło musi mieć:";
-
-            if (hasloTekst.length() < 8) {
-                tekst += " co najmniej 8 znaków,";
-            }
-
-            if (!duza) {
-                tekst += " dużą literę,";
-            }
-
-            if (!mala) {
-                tekst += " małą literę,";
-            }
-
-            if (!specjalny) {
-                tekst += " znak specjalny,";
-            }
-
-            komunikat.setText(tekst);
-            return;
-        }
-
-        komunikat.setText("Dane są poprawne");
-    }
-}
+</LinearLayout>
