@@ -1,4 +1,4 @@
-package com.example.projekt_2;
+package com.example.myapplication;
 
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
