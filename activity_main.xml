@@ -1,41 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="20dp">
+    android:orientation="horizontal"
+    android:fillViewport="true">
 
-    <EditText
-        android:id="@+id/nazwaPliku"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Podaj nazwę pliku" />
+        android:orientation="vertical"
+        android:padding="24dp">
 
-    <EditText
-        android:id="@+id/tekstPliku"
-        android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:hint="Zawartość pliku"
-        android:gravity="top"
-        android:inputType="textMultiLine" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="24dp"
+            android:text="Losowanie kostek"
+            android:textSize="28sp"
+            android:textStyle="bold"/>
 
-    <Button
-        android:id="@+id/przyciskOtworz"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Otwórz" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Liczba kostek"
+            android:textSize="18sp"/>
 
-    <Button
-        android:id="@+id/przyciskZapisz"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Zapisz" />
+        <EditText
+            android:id="@+id/editTextLiczbaKostek"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="podaj liczbe kostek"
+            android:ems="10"
+            android:inputType="number"
+            android:text="5"/>
 
-    <Button
-        android:id="@+id/przyciskUsun"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Usuń" />
+        <Button
+            android:id="@+id/buttonLosuj"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="LOSUJ"/>
 
-</LinearLayout>
+        <GridLayout
+            android:id="@+id/gridKostki"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:alignmentMode="alignMargins"
+            android:columnCount="1"
+            android:gravity="center"
+            android:useDefaultMargins="true"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="wyniki: "
+            android:textSize="20dp"/>
+
+        <TextView
+            android:id="@+id/textViewWyniki"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="wyniki pojawiajo sie tutaj"
+            android:textSize="20sp"/>
+
+        <Button
+            android:id="@+id/buttonRosnaco"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="SORTUJ ROSNONCO"/>
+
+        <Button
+            android:id="@+id/buttonMalejaco"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="SORTUJ MALEJONCO"/>
+
+    </LinearLayout>
+
+
+
+</ScrollView>
